@@ -1,19 +1,20 @@
 function nodeDepths(root) {
   // Write your code here.
-  // here is the space optimized version
+  // Space optimized version of the recursive approach:
 
   // Time complexity:
-  // on average: O(log(N))
-  // - because we are recursing, assuming a balanced tree, with each recursive call we
-  // eliminate half of the nodes
-  // worst case: O(N)
-  // - in the worst case scenario of a completely unbalanced/degenerate tree, we
-  // would have to visit each node in an subsequent frame on the call stack
+  // O(N)
+  // because we will have to visit each node in the tree
+  // but we're only doing constant time operations for each node
 
   // Space complexity:
-  // on average and worst case : Constant space complexity O(1)
-  // because no matter how many nodes are on the tree (N), we will be storing only one variable,
-  // the sum of depths
+  //  O(h)   -- in proportion to the height of the tree
+  // because at most, at any given time, the number of frames we have on the stack will be equal
+  // to the height of the tree (depth of the leaf node at the end)
+  // and no matter how many nodes are on the tree (N), we will be storing only one variable,
+  // in worst case scenario of a completely unbalanced/degenerate tree, h = N (height = # of nodes), so O(N)
+  // and we would have to visit each node in a subsequent frame/function call on the call stack.
+  // in a balanced tree, O(h) starts to look like O(log(N))
 
   // create a variable to store the sum of all depths
   // create a helper function that will recursively visit each node, keeping track of the current depth

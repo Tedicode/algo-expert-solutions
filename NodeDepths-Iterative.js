@@ -12,11 +12,12 @@ function nodeDepths(root) {
   // after the while loop breaks, return the resulting sum
 
   // Time complexity: O(N)
-  // because we must visit each node to process it, so we have N iterations in the while loop,
+  // we must visit each node to process it, so we have N iterations in the while loop,
   // but for each iteration, we are operating only in constant time (using same # of operations)
   // Space complexity: O(N)
   // we are storing, at most, N items in the stack (an array) at once
-  // and then a single variable to hold the sum (O(1), which is negligible next to O(N))
+  // we can also say O(h): the maximum number of nodes/items we are storing in the stack is roughly
+  // equal to the height of the tree, when the tree is balanced
 
   let sumOfDepths = 0;
 

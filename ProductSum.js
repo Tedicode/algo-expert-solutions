@@ -42,11 +42,12 @@ function productSum(array) {
 }
 
 // Time: O(N)
+// where n is every value in the original array AND any nested arrays
 // we must operate on each input n, to evaluate and add their values, but such operations are constant time operations
 
-// Space: O(N)
-// - in the worst case scenario, where each input n is itself an array, we will need to recurse, meaning
-// we'll take up another frame on the call stack for each input
-
+// Space: O(d)
+// where d is the depth of the deepest nested array,
+// we'll need to take up an additional frame on the call stack for each level of nesting at any given time
+// in the worst case scenario, where each input n is itself a nested array, O(d) would be O(n)
 // Do not edit the line below.
 exports.productSum = productSum;

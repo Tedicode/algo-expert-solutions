@@ -3,14 +3,12 @@ function binarySearch(array, target) {
   let leftP = 0;
   let rightP = array.length - 1;
 
-  while (leftP < rightP) {
+  while (leftP <= rightP) {
     midIdx = leftP + Math.floor((rightP - leftP) / 2);
 
     if (target === array[midIdx]) return midIdx;
     else if (target < array[midIdx]) rightP = midIdx - 1;
     else leftP = midIdx + 1;
-
-    if (leftP === rightP && array[leftP] === target) return leftP;
   }
 
   return -1;

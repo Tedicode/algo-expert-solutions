@@ -38,3 +38,20 @@ var validPalindrome = function (s) {
 
   return true;
 };
+
+// Complexity explanation from leetcode:
+// Complexity Analysis
+
+// Given NN as the length of s,
+
+// Time complexity: O(N)O(N).
+
+// The main while loop we use can iterate up to N / 2 times, since each iteration represents a pair of characters. On any given iteration, we may find a mismatch and call checkPalindrome twice. checkPalindrome can also iterate up to N / 2 times, in the worst case where the first and last character of s do not match.
+
+// Because we are only allowed up to one deletion, the algorithm only considers one mismatch. This means that checkPalindrome will never be called more than twice.
+
+// As such, we have a time complexity of O(N)O(N).
+
+// Space complexity: O(1)O(1).
+
+// The only extra space used is by the two pointers i and j, which can be considered constant relative to the input size.

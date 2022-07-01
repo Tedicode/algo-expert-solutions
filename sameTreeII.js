@@ -14,3 +14,8 @@ var isSameTree = function (tree1, tree2) {
     isSameTree(tree1.left, tree2.left) && isSameTree(tree1.right, tree2.right)
   );
 };
+
+// Time: O(n) - where n is the number of nodes on the smaller of the two input trees
+
+// Space: O(n) in the case of a degenerate/unbalanced tree, because we will use up one additional frame to recurse on each node
+// but O(log n) in the case of a balanced tree because we do not begin recursing on the right side until the stack has cleared from recursing down the left side (depth-first-search)

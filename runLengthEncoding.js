@@ -36,3 +36,12 @@ function runLengthEncoding(string) {
 
 // Do not edit the line below.
 exports.runLengthEncoding = runLengthEncoding;
+
+// Time: O(n) - where n is the length of the string.
+// We iterate through the entire string, processing each character
+// but only using constant time operations for each iteration
+
+// Space: O(n) - the only auxiliary space used, that scales with input is the runLengthStr that we return
+// in worst case scenario, where each consecutive character is distinct from the last,
+// we'd store a string twice as long as the input string (same as input string, punctuated with '1's).
+//  >> space complexity of 2n (which becomes n)

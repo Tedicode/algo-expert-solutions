@@ -18,5 +18,16 @@ function generateDocument(characters, document) {
   return true;
 }
 
+// Time: O(m + n)
+// - where n is length of "characters" and m is length of "document"
+// We are looping once through 'characters', and once thru 'document'
+// the loops are not nested, and inside each loop are only the
+// constant time operations of accessing/updating values of object keys
+
+// Space: O(n)
+// - where n is the length of the "characters" string (avalable chars)
+// b/c we build up an object (freqTable) with potentially as many entries as
+// there are chars in "characters"
+
 // Do not edit the line below.
 exports.generateDocument = generateDocument;

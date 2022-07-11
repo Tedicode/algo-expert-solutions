@@ -1,6 +1,9 @@
 function selectionSort(array) {
   // Write your code here.
 
+  // Time : O(n^2) - where n is the length of the input array
+  // Space : O(1) - constant b/c we are not using additional space as input grows
+
   let start = 0;
 
   while (start < array.length) {

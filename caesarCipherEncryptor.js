@@ -1,6 +1,15 @@
 function caesarCipherEncryptor(string, key) {
   // Write your code here.
 
+  // TIME: O(n) - where n is the length of the input string
+  // - b/c we are iterating through the entire string (n times)
+  // for the most part, the body of this outer loop is constant time operations
+  // there is a while loop inside however, that will loop longer,
+  // depending on size of KEY,
+  // So maybe really O(n*key)
+
+  // SPACE: O(n) - because we store a new string equal to the length of input string
+
   let newString = "";
 
   for (let i = 0; i < string.length; i++) {

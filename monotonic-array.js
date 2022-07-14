@@ -1,6 +1,9 @@
 function isMonotonic(array) {
   // Write your code here.
 
+  // Time: O(n) - where n is number of elements in original input array. We evaluate each element once
+  // Space: O(1) - we do not use additional memory with increasing input
+
   // APPROACH:
   // if second distinct element is < its previous, then each element therafter must also be < its previous
   // else, if second distinct element is > its previous, each element therafter must also be > its previous

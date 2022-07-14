@@ -1,6 +1,15 @@
 function spiralTraverse(array) {
   // Write your code here.
 
+  // Time: O(n) - where n is the total number of elements in the input 2D array
+  // - b/c we are just traversing the n elements, and performing constant time
+  // operations (push to array) at each visit
+
+  // Space: O(n) - where n is total number of elements in the input 2D array
+  // - we are storing an array of 'n' elements
+  // - this captures (surpasses) the amount of memory we'll use on the call stack
+  // which would be less than 'n' number of calls
+
   // recursive approach:
   // very similar to iterative approach
   // but use the while condition for the base case

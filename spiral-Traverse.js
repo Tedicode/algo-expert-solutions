@@ -50,6 +50,14 @@ function spiralTraverse(array) {
   return newArray;
 }
 
+// Time: O(n) - where n is the total number of elements in the input 2D array
+// - b/c we are just traversing the n elements, and performing constant time
+// operations (push to array) at each visit
+
+// Space: O(n) - where n is total number of elements in the input 2D array
+// - we are storing an array of 'n' elements
+// - with this iterative approach we don't use additional memory for call stack
+
 // APPROACH :
 // 4 for loops to traverse a perimeter: right, down, left and up
 // as we traverse, push each visited element to the results array

@@ -40,5 +40,15 @@ function longestPeak(array) {
   return longestPeak;
 }
 
+// Time: O(n) - where n is length of input array
+// for loop of length n iterates thru the array
+// though we have while loops inside of this, the values visited by the while loop in one iteration
+// will NOT be revisited in any subsequent iteration of the outer loop
+// because, these while loops only execute for the length of peak, and peaks do not overlap
+
+// Space: O(1)
+// we are not using additional space that scales with growing input.
+// Only a constant number of single variables used
+
 // Do not edit the line below.
 exports.longestPeak = longestPeak;

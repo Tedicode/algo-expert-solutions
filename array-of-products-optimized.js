@@ -6,6 +6,12 @@ function arrayOfProducts(array) {
   // store the multiplication work in array(s)
   // then draw on those products to create the final products array
 
+  // Time: O(n) - where n is length of input array
+  // 3 separate loops of length n, with constant time operations inside each
+
+  // Space: O(n) -
+  // storing 3 arrays of length n
+
   let leftProducts = new Array(array.length).fill(1);
   let rightProducts = new Array(array.length).fill(1);
   let products = [];

@@ -17,5 +17,11 @@ function firstDuplicateValue(array) {
   return -1;
 }
 
+// Time: O(n) - where n is length of input array
+// single for loop iterating thru the array once, with constant time ops inside
+
+// Space: O(n) - b/c we build up frequency table object with potentially as many
+// entries as values in the input array
+
 // Do not edit the line below.
 exports.firstDuplicateValue = firstDuplicateValue;

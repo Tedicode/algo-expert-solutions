@@ -12,9 +12,7 @@ function minHeightBst(array, isRoot = true, root = null) {
 
   if (array.length === 0) return;
 
-  // IF GETTING ERROR, THEN MAY BE OFF BY ONE ERROR? SO MAYBE midpoint be array.length/2 - 1
-  let midpoint =
-    array.length % 2 ? Math.floor(array.length / 2) : array.length / 2 - 1;
+  let midpoint = Math.floor(array.length / 2);
   let value = array[midpoint];
   if (isRoot) root = new BST(value);
   else root.insert(value);

@@ -29,6 +29,23 @@ function minHeightBst(array, isRoot = true, root = null) {
   return root;
 }
 
+// Time : O(nlogn) avg case - where n is array length
+// because we recurse, creating as many calls as we have elements in in array (n)
+// and at each visit we are performing the .insert operation,
+// and .insert is a BST Class method with a time complexity itself of O(n)
+// in the worst case and O(logn) in average case
+// - but we are ensuring an average case by using .insert from the beginning
+// (to create MINiMUM HEIGHT BST)
+// --- so overall complexity is n * log n -->  O(nlogn)
+// and NOT  O(n^2)
+
+// Space: O(n) - where n is the length of the input array
+// we will use up frames on the call stack with each recursive call
+// with each recursive call, we are processing half as many elements
+// so we will have 'log n' calls on the stack at most at one time...
+// BUT we are creating and storing a BST of n nodes,
+// --> so complexity becomes O(n)
+
 class BST {
   constructor(value) {
     this.value = value;

@@ -21,6 +21,17 @@ function validateBst(tree) {
   }
 }
 
+// Time:
+// O(n) - where n is number of nodes in the tree
+
+// Space:
+// AVERAGE case: O(logn) or O(d) where d = depth of the tree :
+// - when we recurse down a balanced tree, we'll use frames on the call stack
+// but only as many as there are nodes in one branch
+// WORST case: O(n)
+// - when we have a totally unbalanced tree, with all n nodes on one branch,
+// we'll be using up to 'n' frames on the call stack at one time
+
 // Do not edit the line below.
 exports.BST = BST;
 exports.validateBst = validateBst;

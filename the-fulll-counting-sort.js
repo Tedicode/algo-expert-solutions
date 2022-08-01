@@ -1,6 +1,12 @@
 function countSort(arr) {
   // Write your code here
 
+  // Time: O(nlogn)  - where n is length of original input array
+  // - we are performing simple for loops of length n, with constant time operations in them
+  // but we also use .sort() method on the input array, giving us time complexity of nlogn
+
+  // Space: O(n) - we are building up a string (or array) of length n, where n is length of input array
+
   // get the length, and then half the length of the input array
   // b/c for the first half, we'll convert/replace strings with '-'
   // then we'll iterate thru the entire input array again, after conversion

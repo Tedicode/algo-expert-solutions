@@ -27,4 +27,30 @@ function countSort(arr) {
   let resultString = "";
   for (let val of arr) resultString += val[1] + " ";
   console.log(resultString);
+
+  // alternate solution for lines 27 - 29 (technically instructions ask to build new array THEN print)
+  // let newArr = []
+
+  // for(let i=0; i < arr.length; i++) {
+  //     let subArr = arr[i]
+  //     let idx = subArr[0]
+  //     if(newArr[idx]) newArr[idx].push(subArr[1])
+  //     else {
+  //         newArr[idx] = [subArr[1]]
+  //     }
+
+  // }
+
+  // // finally we'll print the contents of all these subarrays (like one long string / sentence)
+  // let resultsStr = ''
+  // for(let val of newArr) {
+  //     if(val) {
+  //         let newSub = val.join(' ')
+  //         resultsStr += newSub
+  //         resultsStr += ' '
+
+  //     }
+  // }
+
+  // console.log(resultsStr)
 }

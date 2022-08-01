@@ -15,3 +15,6 @@ function countingSort(arr) {
 
   return freqArr;
 }
+
+// Time: O(n) - iterate thru the array one time, and each iteration performs a constant time operation
+// Space: O(1) - we are using auxiliary space to create a frequency array; it will always be length 100

@@ -19,3 +19,6 @@ function countingSort(arr) {
   console.log(newArr);
   return newArr;
 }
+
+// time: O(n) - where n is the number of values in input array
+// space: O(n) - we are storing an additional array of the same length as input array

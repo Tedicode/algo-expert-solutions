@@ -28,3 +28,12 @@ const intersection = (a, b) => {
   // because .filter() is o(n), and inside that is .includes() which is
   // also o(n). so this would give o(n^2) time
 };
+
+// Time: O(n)
+// technically O(n+m) where n is length of array a and m is length of array b
+// we build up a set from array a's values: O(n)
+// then we iterate thru array b's, each iteration being a constant time operation
+// (searching a Set is O(1), whereas searching an array is an O(n) time operation)
+
+// Space: O(n) - where n is length of array a
+// b/c we build up a set that will be at most the length of array a

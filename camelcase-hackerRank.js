@@ -15,3 +15,7 @@ function camelcase(s) {
 
   return count + 1;
 }
+function isUpper(char) {
+  let newChar = char.toUpperCase();
+  return newChar === char;
+}

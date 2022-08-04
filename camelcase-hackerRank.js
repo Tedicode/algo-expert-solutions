@@ -15,7 +15,11 @@ function camelcase(s) {
 
   return count + 1;
 }
+
 function isUpper(char) {
   let newChar = char.toUpperCase();
   return newChar === char;
 }
+
+// Time: o(n) - iterate thru input string once, with constant time ops inside
+// Space: o(1) - constant space, only one variable created

@@ -38,13 +38,18 @@ function minimumNumber(n, password) {
   if (hasUpper) criteriaCount++;
   if (hasSpecial) criteriaCount++;
 
-  if (n >= 6) criteriaCount++;
+  // actually don't count length as a criterion yet. account for this in the length-adjustment to 'diff' below
+  // if(n >= 6) criteriaCount++
 
-  let diff = 5 - criteriaCount;
+  // and look for 4 criteria, not 5 (exclude length criteria here)
+  let diff = 4 - criteriaCount;
   // it's possible that after adding the characters needed to satisfy
-  // the first 4 criteria, that the length is still short by MORE THAN 1
-  // so, ALSO make up the rest of the difference in LENGTH, AFTER
-  // accounting for how many more characters are needed to satisfy the other criteria
-  while (diff + n < 6) diff++;
+  // the first 4 criteria, that the length is short by MORE THAN 1
+  // so, make up the rest of the difference in LENGTH here, AFTER
+  // accounting for how many more characters are needed to satisfy the other 4 criteria
+
+  // if the diff (more chars needed), plus "n" (length of input string), together are still less than 6,
+  // then update the diff to be however many MORE chars will now reach a length of 6
+  if (diff + n < 6) diff += 6 - (n + diff);
   return diff;
 }

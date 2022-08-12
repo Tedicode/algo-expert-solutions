@@ -59,3 +59,30 @@ function reverseSentence(arr) {
   }
   return resultsArr;
 }
+
+// alternately: ------------------------------------
+
+// function reverseSentence(arr) {
+//   let wordsArr = []
+//   let tempStr = ''
+
+//   for(let el of arr) {
+//     if(el.trim().length !== el.length) {
+//       wordsArr.push(tempStr)
+//       wordsArr.push(el)
+//       tempStr = ''
+//     } else tempStr += el
+//   }
+
+//   if(tempStr) wordsArr.push(tempStr)
+
+//   let resultsArr = []
+
+//   while(wordsArr.length) {
+//     let word = wordsArr.pop()
+//     if(word.trim().length !== word.length)resultsArr.push(word)
+//     else for(let char of word) resultsArr.push(char)
+//   }
+
+//   return resultsArr;
+// }

@@ -1,0 +1,32 @@
+/**
+ * @param {string} word
+ * @return {boolean}
+ */
+var detectCapitalUse = function (word) {
+  let firstChar = word[0];
+  let secondChar = word[1];
+
+  if (isUpper(firstChar) && isUpper(secondChar)) {
+    // then entire word must be uppercase or else return false
+    let newWord = word.slice().toUpperCase();
+    return newWord === word;
+  } else if (isUpper(firstChar)) {
+    // then the rest of the word must be lowercase or else return false
+    let restOfWord = word.slice(1, word.length);
+    let lowered = restOfWord.toLowerCase();
+    return restOfWord === lowered;
+  } else {
+    // the first char is lower case, so entire word must be lowercase
+    // or else return false
+    let lowered = word.slice().toLowerCase();
+    return lowered === word;
+  }
+};
+
+function isUpper(char) {
+  if (char) {
+    let newChar = char.slice().toUpperCase();
+
+    return newChar === char;
+  }
+}

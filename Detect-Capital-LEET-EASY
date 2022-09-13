@@ -3,24 +3,79 @@
  * @return {boolean}
  */
 var detectCapitalUse = function (word) {
-  let firstChar = word[0];
-  let secondChar = word[1];
+  // get length of the word
+  let n = word.length;
 
-  if (isUpper(firstChar) && isUpper(secondChar)) {
-    // then entire word must be uppercase or else return false
-    let newWord = word.slice().toUpperCase();
-    return newWord === word;
-  } else if (isUpper(firstChar)) {
-    // then the rest of the word must be lowercase or else return false
-    let restOfWord = word.slice(1, word.length);
-    let lowered = restOfWord.toLowerCase();
-    return restOfWord === lowered;
-  } else {
-    // the first char is lower case, so entire word must be lowercase
-    // or else return false
-    let lowered = word.slice().toLowerCase();
-    return lowered === word;
+  // declare 3 variables and initialize them all to true by default
+  let isAllCaps = true,
+    isNoCaps = true,
+    isOneCap = true;
+
+  // case all capitals
+  for (let i = 0; i < n; i++) {
+    if (!isUpper(word[i])) {
+      isAllCaps = false;
+      break;
+    }
   }
+
+  if (isAllCaps) {
+    console.log("thinks it is all caps");
+    return true;
+  }
+
+  // case no capitals
+  for (let i = 0; i < n; i++) {
+    if (isUpper(word[i])) {
+      isNoCaps = false;
+      break;
+    }
+  }
+
+  if (isNoCaps) {
+    console.log("thinks there are no caps");
+    return true;
+  }
+
+  // case of first only capital
+  if (isUpper(word[0])) {
+    // first char is uppercase so now test to see if remainder is lower
+    // if NOT, change isOneCap = false
+    for (let i = 1; i < n; i++) {
+      if (isUpper(word[i])) {
+        isOneCap = false;
+        break;
+      }
+    }
+  } else {
+    isOneCap = false;
+  }
+
+  if (isOneCap) {
+    console.log("thinks there is one cap");
+    return true;
+  }
+
+  // else return false
+  return false;
+  // let firstChar = word[0];
+  // let secondChar = word[1];
+
+  // if (isUpper(firstChar) && isUpper(secondChar)) {
+  //   // then entire word must be uppercase or else return false
+  //   let newWord = word.slice().toUpperCase();
+  //   return newWord === word;
+  // } else if (isUpper(firstChar)) {
+  //   // then the rest of the word must be lowercase or else return false
+  //   let restOfWord = word.slice(1, word.length);
+  //   let lowered = restOfWord.toLowerCase();
+  //   return restOfWord === lowered;
+  // } else {
+  //   // the first char is lower case, so entire word must be lowercase
+  //   // or else return false
+  //   let lowered = word.slice().toLowerCase();
+  //   return lowered === word;
+  // }
 };
 
 function isUpper(char) {

@@ -8,13 +8,23 @@
 const getNodeValue = (head, index) => {
   // todo
 
-  let arr = [];
+  let idx = 0;
+  let current = head;
   while (current !== null) {
-    arr.push(current.val);
+    if (idx === index) return current.val;
+    idx++;
     current = current.next;
   }
 
-  return arr[index] || null;
+  return null;
+
+  // let arr = [];
+  // while (current !== null) {
+  //   arr.push(current.val);
+  //   current = current.next;
+  // }
+
+  // return arr[index] || null;
 };
 
 module.exports = {

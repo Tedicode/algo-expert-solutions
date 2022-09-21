@@ -10,6 +10,11 @@ const removeNode = (head, targetVal) => {
 
   // recursive approach :
 
+  // Time: O(n) : we'll have as many iterateions as we have nodes in the LL. and
+  // each iteration comprises only constant time operations
+
+  // Space: O(n) : we'll use as many frames on the call stack as we have nodes in the LL
+
   // base case: empty linkedlist
   if (head === null) return null;
   // base case: we've reached a node with the target value

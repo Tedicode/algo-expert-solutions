@@ -8,16 +8,20 @@
 const removeNode = (head, targetVal) => {
   // todo
 
+  // pre-condition to short circuit: if first node is target to be removed,
+  // then just return the linked list beginning with the next node
+  if (head.val === targetVal) return head.next;
+
+  // otherwise traverset the linked list, keeping track of "prev" node too
   let current = head;
   let prev;
 
   while (current !== null) {
-    if (prev && current.val === targetVal) {
+    if (current.val === targetVal) {
+      // link the previous and the next together, splicing out the current from inbetween them
       prev.next = current.next;
-      // and return head, returning the function
+      // and return head to return the linkedlist, now modified
       return head;
-    } else if (current.val === targetVal) {
-      return current.next;
     } else {
       prev = current;
       current = current.next;

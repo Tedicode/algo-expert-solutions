@@ -8,6 +8,8 @@
 const removeNode = (head, targetVal) => {
   // todo
 
+  // iterative approach:
+
   // pre-condition to short circuit: if first node is target to be removed,
   // then just return the linked list beginning with the next node
   if (head.val === targetVal) return head.next;
@@ -28,6 +30,13 @@ const removeNode = (head, targetVal) => {
     }
   }
 };
+
+// Time: O(N) - traversing the entire linked list,
+// the while loop perform N iterations, and each iteration
+// comprises constant-time operations
+
+// Space: O(1) - constant space - always uses just 2 variables
+// to store current and prev node in each iteration
 
 module.exports = {
   removeNode,

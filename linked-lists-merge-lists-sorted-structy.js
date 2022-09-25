@@ -6,7 +6,11 @@ class Node {
 }
 
 const mergeLists = (head1, head2) => {
-  // todo
+  // Big O
+  // Time: O(n+m) where n is # of nodes in LL1 and m is # of nodes in LL2
+  // visiting each node, and with each iteration only performing O(1) ops
+  // Space: O(1)
+  // sorting in place, not creating any new nodes/LL
 
   let tail = head1.val < head2.val ? head1 : head2;
   let resultingList = tail;

@@ -52,14 +52,6 @@ class SinglyLinkedList {
 
   shift() {
     if (!this.head) return undefined;
-    // if (this.head === this.tail) {
-    //   let temp = this.head;
-    //   this.head = null;
-    //   this.tail = null;
-    //   this.length--;
-    //   return temp;
-    // }
-    // else save oldHead to return, and make this.head.next the new head
     let oldHead = this.head;
     this.head = this.head.next;
     this.length--;
@@ -84,10 +76,11 @@ class SinglyLinkedList {
     // otherwise, can traverse the LL and return the value at the given idx
     let current = this.head;
     let count = 0;
-    while (current) {
-      if (count === idx) return current.val;
+    while (counter !== idx) {
       current = current.next;
       count++;
     }
+    // return the whole node (not just the node's val) for this getter method
+    return current;
   }
 }

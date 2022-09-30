@@ -123,24 +123,37 @@ class SinglyLinkedList {
     let trashNode = prevNode.next;
     prevNode.next = prevNode.next.next;
     this.length--;
-    return trashNode.val;
+    return trashNode;
+  }
+
+  reverse() {
+    let prev = null;
+    let current = this.head;
+
+    // traverse, keeping track of the prev and next, and reverse the direction
+    // of the connection at each node
+    while (current !== null) {
+      let nextHolder = current.next;
+      current.next = prev;
+      prev = current;
+      current = nextHolder;
+    }
+
+    this.tail = this.head;
+    this.head = prev;
+
+    return this;
   }
 }
 
 let myList = new SinglyLinkedList();
 
-myList.push("9");
-myList.push("8");
-myList.push("7");
-myList.push("6");
-myList.push("5");
+myList.push("1");
+myList.push("2");
+myList.push("3");
 myList.push("4");
-console.log(myList.get(0));
-console.log(myList.get(1));
-console.log(myList.get(2));
-console.log(myList.length);
-console.log(myList.insert(0, "hello"));
-console.log(myList.length);
-console.log(myList.get(0));
-console.log(myList.get(1));
-console.log(myList.get(2));
+myList.push("5");
+myList.push("6");
+console.log(myList.reverse());
+console.log(myList.head);
+console.log(myList.tail);

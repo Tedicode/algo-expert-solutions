@@ -110,6 +110,21 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
+
+  remove(idx) {
+    // 3 edge cases:
+    if (idx < 0 || idx >= this.length) return undefined;
+    if (idx === 0) return this.shift();
+    if (idx === this.length - 1) return this.pop();
+
+    // otherwise use our built in .get method to grab ahold of node at idx-1
+    // and patch it to the node after it's next node
+    let prevNode = this.get(idx - 1);
+    let trashNode = prevNode.next;
+    prevNode.next = prevNode.next.next;
+    this.length--;
+    return trashNode.val;
+  }
 }
 
 let myList = new SinglyLinkedList();

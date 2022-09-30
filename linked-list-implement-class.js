@@ -76,11 +76,56 @@ class SinglyLinkedList {
     // otherwise, can traverse the LL and return the value at the given idx
     let current = this.head;
     let count = 0;
-    while (counter !== idx) {
+    while (count !== idx) {
       current = current.next;
       count++;
     }
     // return the whole node (not just the node's val) for this getter method
     return current;
   }
+
+  set(idx, val) {
+    let gotNode = this.get(idx);
+    if (!gotNode) return false;
+    else gotNode.val = val;
+    return true;
+  }
+
+  insert(idx, val) {
+    // pre-condition checks:
+    if (idx < 0 || idx > this.length) return false;
+    // if idx is EXACTLY the length, then just insert new node to the end (push)
+    if (idx === this.length) return !!this.push(val);
+    if (idx === 0) return !!this.unshift(val);
+
+    // and for remaining cases:
+
+    //  make use of our .get method -- but call it with (idx - 1) to get previous one
+    let prevNode = this.get(idx - 1);
+    // (where we'll attach the new node)
+    let newNode = new Node(val);
+    let temp = prevNode.next;
+    newNode.next = temp;
+    prevNode.next = newNode;
+    this.length++;
+    return true;
+  }
 }
+
+let myList = new SinglyLinkedList();
+
+myList.push("9");
+myList.push("8");
+myList.push("7");
+myList.push("6");
+myList.push("5");
+myList.push("4");
+console.log(myList.get(0));
+console.log(myList.get(1));
+console.log(myList.get(2));
+console.log(myList.length);
+console.log(myList.insert(0, "hello"));
+console.log(myList.length);
+console.log(myList.get(0));
+console.log(myList.get(1));
+console.log(myList.get(2));

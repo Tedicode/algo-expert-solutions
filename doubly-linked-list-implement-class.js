@@ -103,15 +103,50 @@ class DoublyLinkedList {
       current = this.head;
       while (count < idx) {
         count++;
-        current = current.prev;
+        current = current.next;
       }
     }
     return current;
   }
+
+  set(idx, val) {
+    let theNode = this.get(idx);
+    if (theNode !== null) {
+      theNode.val = val;
+      return true;
+    }
+    return false;
+  }
+
+  insert(idx, val) {
+    // create the new node
+
+    let newNode = new Node(val);
+    // edge cases:
+    // if idx is invalid (less than zero or greater than length -- exact length is OK here)
+    // then return undefined / null
+    if (idx < 0 || idx > this.length) return false;
+    // if idx is zero, utilize unshift method (& return ITS !!return value)
+    if (idx === 0) return !!this.unshift(val);
+    // if idx is exactly the LL's length, utilize push method (& return ITS !!return value)
+    if (idx === this.length) return !!this.push(val);
+
+    // otherwise, utilize .get method, passing idx-1, to get node before this idx
+    // and store it as prev
+    // store THAT node's next - b/c it will be the new node's next
+    // then set all the needed connections
+    let prev = this.get(idx - 1);
+    let next = prev.next;
+
+    (newNode.next = next), (next.prev = newNode);
+    (newNode.prev = prev), (prev.next = newNode);
+
+    this.length++;
+
+    return true;
+  }
 }
 
 let list = new DoublyLinkedList();
-list.push(1);
-list.push(2);
-list.push(3);
-list.unshift(10);
+list.push("hi");
+list.push("there");

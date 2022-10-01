@@ -145,8 +145,33 @@ class DoublyLinkedList {
 
     return true;
   }
+
+  remove(idx) {
+    // edge cases:
+    // handle invalid indexes
+    if (idx < 0 || idx >= this.length) return undefined;
+    // if idx === 0, just utilize .shift method
+    if (idx === 0) return this.shift();
+    // if idx === this.length - 1, just utilize .pop method
+    if (idx === this.length - 1) return this.pop();
+
+    // otherwise: for main cases:
+    // utilize .get method, passing idx - 1 to grab the node before our node-to-remove
+    let beforeNode = this.get(idx - 1);
+    let nodeToRemove = beforeNode.next;
+    let afterNode = nodeToRemove.next;
+    // and do all of the required connecting of references and patching needed
+    // beforeNode.next = beforeNode.next.next;
+    // beforeNode.next.next.prev = beforeNode;
+    (beforeNode.next = afterNode), (afterNode.prev = beforeNode);
+    // clean up: sever any lingering references from the removed-node before returning it
+    nodeToRemove.prev = null;
+    nodeToRemove.next = null;
+    // decrement length
+    this.length--;
+    // return the removed node
+    return nodeToRemove;
+  }
 }
 
 let list = new DoublyLinkedList();
-list.push("hi");
-list.push("there");

@@ -172,6 +172,25 @@ class DoublyLinkedList {
     // return the removed node
     return nodeToRemove;
   }
+
+  reverse() {
+    // traverse keeping track of prev and next
+    let prev = null;
+    let current = this.head;
+
+    // only diff from reversing a singly LL is updating BOTH pointers per node (line 184)
+    while (current) {
+      let next = current.next;
+      (current.next = prev), (current.prev = next);
+      prev = current;
+      current = next;
+    }
+
+    this.tail = this.head;
+    this.head = prev;
+
+    return this;
+  }
 }
 
 let list = new DoublyLinkedList();

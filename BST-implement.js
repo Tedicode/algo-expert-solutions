@@ -38,19 +38,38 @@ class BinarySearchTree {
     // but above, we defined classes for Node and BinarySearchTree separately, with diff properties
   }
 
-  find(val) {
-    if (!this.root) return null;
-    // check if root is the val
-    // otherwise traverse the tree until finding the val
-    // if we arrive at a leaf (child is null), without finding vall, return null
-    let current = this.root;
-    while (current) {
-      if (current.val === val) return true;
-      if (val > current.val) current = current.right;
-      else current = current.left;
-    }
+  // find(val) {
+  //   if (!this.root) return null;
+  //   // check if root is the val
+  //   // otherwise traverse the tree until finding the val
+  //   // if we arrive at a leaf (child is null), without finding vall, return null
+  //   let current = this.root;
+  //   while (current) {
+  //     if (current.val === val) return true;
+  //     if (val > current.val) current = current.right;
+  //     else current = current.left;
+  //   }
 
-    return null;
+  //   return null;
+  // }
+
+  // recursive approach:  find method
+
+  find(val, node = this.root) {
+    // ** Note that .find method is only accessible on the root of the tree
+    // not on any subsequent node. so we can't call '.find' on any node other than root
+    // so in recursive definition, just pass as an argument, to operate on the next node (lines 64, 67)
+
+    if (!node) return null;
+    if (node.val === val) return true;
+    if (val > node.val) {
+      if (!node.right) return null;
+      else return this.find(val, node.right);
+    }
+    if (val < node.val !== null) {
+      if (node.left) return this.find(val, node.left);
+      else return null;
+    }
   }
 }
 

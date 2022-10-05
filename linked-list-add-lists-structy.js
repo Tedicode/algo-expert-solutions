@@ -42,6 +42,9 @@ const addLists = (head1, head2) => {
   return thirdList.next;
 };
 
+// Time: O(n) -  where N is the number of nodes on the longer of the two input LL's
+// Space: O(n) - we are creating and storing a new LinkedList, whose length will be at most as long as the longer of the two input linked lists + 1
+
 module.exports = {
   addLists,
 };

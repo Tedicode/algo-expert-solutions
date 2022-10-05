@@ -37,6 +37,21 @@ class BinarySearchTree {
     // recursive nature built in when defining class BST and each Node is itself a BST
     // but above, we defined classes for Node and BinarySearchTree separately, with diff properties
   }
+
+  find(val) {
+    if (!this.root) return null;
+    // check if root is the val
+    // otherwise traverse the tree until finding the val
+    // if we arrive at a leaf (child is null), without finding vall, return null
+    let current = this.root;
+    while (current) {
+      if (current.val === val) return true;
+      if (val > current.val) current = current.right;
+      else current = current.left;
+    }
+
+    return null;
+  }
 }
 
 var tree = new BinarySearchTree();
@@ -46,3 +61,4 @@ tree.insert(12);
 tree.insert(15);
 console.log(tree.root.left);
 console.log(tree.root.right.right);
+console.log(tree.find(15));

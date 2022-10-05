@@ -61,4 +61,4 @@ tree.insert(12);
 tree.insert(15);
 console.log(tree.root.left);
 console.log(tree.root.right.right);
-console.log(tree.find(15));
+console.log(tree.find(11));

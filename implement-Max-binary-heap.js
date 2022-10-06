@@ -28,20 +28,17 @@ class MaxBinHeap {
   extractMax() {
     // identify the root  (this.values[0]) , which is the max value we're removing
     let max = this.values[0];
+    let end = this.values.pop();
 
     let length = this.values.length;
-    // edge case: if heap is empty, return undefined and do nothing more
-    if (length === 0) return undefined;
+    // edge case: if heap is empty here, return max and do nothing more
+    // if there was only one el in heap, it'll return that el
+    // if the heap was empty to start, it'll return undefined
+    if (length === 0) return max;
 
-    // otherwise:
-    // capture the end of the heap (smallest value)
-    let end = this.values[length - 1];
-    // and swap with the max
+    // otherwise, place "end" at the front of the heap
     this.values[0] = end;
-    this.values[length - 1] = max;
 
-    // remove the max from the end now
-    this.values.pop();
     let leftChild, rightChild;
 
     // while loop for 'end' el to bubble back down to correct place (where no greater children)

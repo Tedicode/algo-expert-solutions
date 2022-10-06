@@ -119,6 +119,22 @@ class BinarySearchTree {
     helperRecurse(this.root);
     return data;
   }
+
+  inOrderDFS() {
+    let data = [];
+
+    function helperRecurse(node) {
+      if (!node) return;
+      if (node.left) helperRecurse(node.left);
+      // node.left && helperRecurse(node.left);
+      data.push(node.val);
+      if (node.right) helperRecurse(node.right);
+      // node.right && helperRecurse(node.right)
+    }
+
+    helperRecurse(this.root);
+    return data;
+  }
 }
 
 var tree = new BinarySearchTree();
@@ -133,3 +149,4 @@ tree.insert(22);
 console.log(tree.find(3));
 console.log(tree.preOrderDFS());
 console.log(tree.postOrderDFS());
+console.log(tree.inOrderDFS());

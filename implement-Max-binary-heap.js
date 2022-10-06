@@ -64,7 +64,8 @@ class MaxBinHeap {
         // if right child exists, and is greater than the left child
         // OR if no swap has occurred yet, and right child is greater than  'end' element
         // then update swap to take the right child instead
-        if (rightChild > leftChild || swap === null) swap = rightChildIdx;
+        if (rightChild > leftChild || (swap === null && rightChild > end))
+          swap = rightChildIdx;
       }
 
       // if by now we've found no reason to swap, break out of loop

@@ -37,6 +37,56 @@ class PriorityQueue {
 
     return this.values;
   }
+
+  // remove the node from the top (which has the lowest number / highest priority)
+  // take the node from the end and put it at the top, then bubble it down
+  // return the removed node (that has the highest priority/lowest number)
+  dequeue() {
+    let topPriority = this.values[0];
+    let end = this.values.pop();
+    // if queue was empty, then the returned is undefined
+    // if queue had only one node, then the returned is that node
+    if (this.values.length === 0) return topPriority;
+
+    // else, we'll have to swap end to the top and then bubble down by priority
+    // UNTIL placed
+    this.values[0] = end;
+
+    let length = this.values.length;
+    let idx = 0;
+    let leftChild, rightChild;
+
+    while (idx < length) {
+      let swap = null;
+      // locate children
+      let leftChildIdx = 2 * idx + 1;
+      let rightChildIdx = 2 * idx + 2;
+
+      if (leftChildIdx < length) {
+        leftChild = this.values[leftChildIdx];
+        if (leftChild.priority < end.priority) swap = leftChildIdx;
+      }
+
+      if (rightChildIdx < length) {
+        rightChild = this.values[rightChildIdx];
+        if (
+          (swap === null && rightChild.priority < end.priority) ||
+          rightChild.priority < leftChild.priority
+        )
+          swap = rightChildIdx;
+      }
+
+      if (swap === null) break;
+      // do the swap
+      this.values[idx] = this.values[swap];
+      this.values[swap] = end;
+
+      // update the idx of node, to that chosen swap index
+      idx = swap;
+    }
+    // then return the removed node
+    return topPriority;
+  }
 }
 
 let priorityQ = new PriorityQueue();
@@ -46,3 +96,8 @@ priorityQ.enqueue("get $$", 2);
 priorityQ.enqueue("get awesome job", 1);
 
 console.log(priorityQ.values.map((val) => val.val));
+console.log(priorityQ.dequeue());
+console.log(priorityQ.dequeue());
+console.log(priorityQ.dequeue());
+console.log(priorityQ.dequeue());
+console.log(priorityQ.dequeue());

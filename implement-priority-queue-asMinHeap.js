@@ -91,11 +91,14 @@ class PriorityQueue {
 
 let priorityQ = new PriorityQueue();
 
-priorityQ.enqueue("get car", 3);
-priorityQ.enqueue("get $$", 2);
-priorityQ.enqueue("get awesome job", 1);
+priorityQ.enqueue("3", 3);
+priorityQ.enqueue(" 2", 2);
+priorityQ.enqueue("5", 5);
+priorityQ.enqueue("9", 9);
+priorityQ.enqueue("1 ", 1);
 
 console.log(priorityQ.values.map((val) => val.val));
+console.log(priorityQ.dequeue());
 console.log(priorityQ.dequeue());
 console.log(priorityQ.dequeue());
 console.log(priorityQ.dequeue());

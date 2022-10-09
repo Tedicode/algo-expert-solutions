@@ -10,7 +10,7 @@ const treeSum = (root) => {
   // todo
   // recursive approach :
 
-  //   let sum = 0
+  let sum = 0;
 
   function helperRecurse(node) {
     if (node === null) return;

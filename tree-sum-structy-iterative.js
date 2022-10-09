@@ -26,6 +26,9 @@ const treeSum = (root) => {
   return sum;
 };
 
+// time: O(n^2) - n iterations, to process each node - and Each iteration performs an O(n)complexity operation : .shift() because we're using a queue
+// space: O(n) - storing a queue that could approach 'n' nodes long at one point in time
+
 module.exports = {
   treeSum,
 };

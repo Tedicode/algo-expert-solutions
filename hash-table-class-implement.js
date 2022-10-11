@@ -24,6 +24,7 @@ class HashTable {
   get(key) {
     let keyIdx = this._hash(key);
     let valsArray = this.keyMap[keyIdx];
+    if (!valsArray) return undefined;
     if (valsArray.length > 1) {
       // then iterate through this array (of arrays) to find the array w/ this key
       for (let [theKey, theVal] of valsArray) {
@@ -40,6 +41,6 @@ myHashTable.set("pink", "strawberry");
 myHashTable.set("orange", "tangerine");
 myHashTable.set("blue", "blueberry");
 
-console.log(myHashTable.get("blue"));
+console.log(myHashTable.get("break"));
 console.log(myHashTable.get("pink"));
 console.log(myHashTable.get("orange"));

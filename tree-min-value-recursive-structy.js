@@ -7,17 +7,23 @@
 // }
 
 const treeMinValue = (root, min = Infinity) => {
-  function helperRecurse(node) {
-    if (node === null) return;
-    if (node.val < min) min = node.val;
-    helperRecurse(node.left);
-    helperRecurse(node.right);
-    return;
-  }
+  // recursive solution slimmer:
+  // DFS
+  if (!root) return min;
+  if (root.val < min) min = root.val;
+  return Math.min(treeMinValue(root.left, min), treeMinValue(root.right, min));
 
-  helperRecurse(root);
+  // function helperRecurse(node) {
+  //   if (node === null) return;
+  //   if (node.val < min) min = node.val;
+  //   helperRecurse(node.left);
+  //   helperRecurse(node.right);
+  //   return;
+  // }
 
-  return min;
+  // helperRecurse(root);
+
+  // return min;
 };
 
 module.exports = {

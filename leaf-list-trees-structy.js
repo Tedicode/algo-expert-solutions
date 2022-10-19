@@ -7,6 +7,8 @@
 // }
 
 const leafList = (root) => {
+  // Time: O(n)
+  // Space: O(n)
   let leavesArr = [];
 
   function helperRecurse(node) {

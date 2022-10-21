@@ -1,5 +1,8 @@
 const isPrime = (n) => {
-  // todo
+  // Time: O(n)  - approaches n/2 iterations comprising constant time operations
+  // which reduces to O(n)
+  // Space: O(1) - constant space, using no auxilliary memory, only 1 variable, i
+
   if (n === 0) return false;
   if (n === 1) return false;
   if (n === 2) return true;

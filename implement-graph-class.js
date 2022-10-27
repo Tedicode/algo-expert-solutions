@@ -65,6 +65,30 @@ class Graph {
     return results;
   }
 
+  breadthFirstTraversal(start) {
+    let results = [];
+    let visited = {};
+    let queue = [start];
+
+    visited[start] = true;
+    let currentVertex;
+
+    while (queue.length) {
+      currentVertex = queue.shift();
+      results.push(currentVertex);
+
+      // record all vertices as visited as soon as we add them to the stack
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+
+    return results;
+  }
+
   printAll() {
     for (let key of Object.keys(this.adjacencyList)) {
       console.log(`key/vertex: ${key}`);
@@ -92,4 +116,5 @@ g.addEdge("E", "F");
 
 g.printAll();
 // console.log(g.DFSrecursive("A"));
-console.log(g.DFSiterative("A"));
+// console.log(g.DFSiterative("A"));
+console.log(g.breadthFirstTraversal("A"));

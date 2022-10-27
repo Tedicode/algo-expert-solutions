@@ -28,6 +28,43 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
+  DFSrecursive(start) {
+    // takes in a vertex as the starting point b/c, unlike a tree, there is no root
+    let results = [];
+    let visited = {};
+
+    const helperRecurse = (vertex) => {
+      if (visited[vertex]) return;
+      results.push(vertex);
+      visited[vertex] = true;
+      if (!this.adjacencyList[vertex]) return;
+      let neighbors = this.adjacencyList[vertex];
+      for (let neighbor of neighbors) helperRecurse(neighbor);
+    };
+
+    helperRecurse(start);
+    return results;
+  }
+
+  DFSiterative(start) {
+    let results = [];
+    let visited = {};
+    let stack = [start];
+
+    let currentVertex;
+
+    while (stack.length) {
+      currentVertex = stack.pop();
+      if (visited[currentVertex]) continue;
+      visited[currentVertex] = true;
+      results.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach((neighbor) =>
+        stack.push(neighbor)
+      );
+    }
+    return results;
+  }
+
   printAll() {
     for (let key of Object.keys(this.adjacencyList)) {
       console.log(`key/vertex: ${key}`);
@@ -39,10 +76,20 @@ class Graph {
 
 let g = new Graph();
 
-g.addVertex(1);
-g.addVertex(2);
-g.addVertex(3);
-g.addEdge(1, 2);
-g.removeVertex(2);
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+g.addEdge("A", "B");
+g.addEdge("A", "C");
+g.addEdge("B", "D");
+g.addEdge("C", "E");
+g.addEdge("D", "E");
+g.addEdge("D", "F");
+g.addEdge("E", "F");
 
 g.printAll();
+// console.log(g.DFSrecursive("A"));
+console.log(g.DFSiterative("A"));

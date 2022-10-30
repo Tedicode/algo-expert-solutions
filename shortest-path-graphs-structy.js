@@ -1,25 +1,17 @@
 const shortestPath = (edges, nodeA, nodeB) => {
   let graph = makeGraph(edges);
   let visited = new Set();
-  let stack = [[nodeA, 0]];
+  let queue = [[nodeA, 0]];
 
-  let level = 0;
-
-  while (stack.length) {
-    let current = stack.pop();
+  while (queue.length) {
+    let current = queue.shift();
     let [currentNode, currentLevel] = current;
+    if (currentNode === nodeB) return currentLevel;
 
-    if (currentLevel !== level) level++;
-    if (visited.has(currentNode)) level--;
     if (!visited.has(currentNode)) {
       visited.add(currentNode);
-      if (currentNode === nodeB) return currentLevel;
-
-      for (let neighbor of graph[currentNode]) {
-        if (neighbor === nodeB) return level + 1;
-
-        stack.push([neighbor, level + 1]);
-      }
+      for (let neighbor of graph[currentNode])
+        queue.push([neighbor, currentLevel + 1]);
     }
   }
 

@@ -9,6 +9,8 @@ const shortestPath = (edges, nodeA, nodeB) => {
     if (currentNode === nodeB) return currentLevel;
 
     if (!visited.has(currentNode)) {
+      // important to mark the nodes visited here, instead of when dequeueing, b/c
+      // If you enqueue a node and don't mark it as discovered, you run the risk of enqueueing it again
       visited.add(currentNode);
       for (let neighbor of graph[currentNode])
         queue.push([neighbor, currentLevel + 1]);
